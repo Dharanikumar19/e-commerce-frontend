@@ -1,0 +1,10 @@
+
+.container-fluid select, input{
+    height: 50px;
+    border: 2mm ridge rgba(230, 227, 226, 0.6);
+    outline: none;
+ 
+ }
+ .container-fluid span, label{
+     font-weight: bold;
+ }

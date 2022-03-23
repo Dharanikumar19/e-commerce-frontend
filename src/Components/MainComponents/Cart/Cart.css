@@ -1,0 +1,88 @@
+/* same product details page design */
+.detail{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 120%;
+}
+.detail img{
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+.box-detail{
+    max-width: 500px;
+    width: 100%;
+    margin: 5px 20px;
+}
+.box-detail .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box-detail h2{
+    text-transform:capitalize;
+    color: rgb(22, 105, 36);
+    letter-spacing: 2px;
+    font-weight: 2rem;
+}
+.box-detail p{
+    line-height: 1.5;
+    margin: 10px 0;
+    opacity: 0.8;
+}
+.box-detail .cart{
+    background: #333;
+    color: white;
+    margin-top: 10px;
+    padding: 8px 17px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+/* cart, buttons , amount, total */
+
+.cart-final{
+    position: relative;
+    border: 1px solid #ccc;
+    transform: scaleY(0.98);
+}
+.amount span{
+    color: crimson;
+    padding: 0 20px;
+}
+.amount button{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #777;
+}
+.delete{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    color: crimson;
+    font-weight: 1000;
+    cursor: pointer;
+    border : 1px solid black;
+    padding: 2px 7px;
+}
+.total{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.total h3{
+    color: crimson;
+    margin-left: 10px;
+}
+.paymentButton{
+    margin-right: 10px;
+}

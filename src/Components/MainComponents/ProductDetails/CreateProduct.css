@@ -1,0 +1,30 @@
+.create_product{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.create_product form{
+    max-width: 500px;
+    min-width: 290px;
+    width: 100%;
+    margin: 15px 30px;
+}
+.create_product form .row{
+    width: 100%;
+    margin: 20px 0 20px 10px;
+}
+
+.create_product form input, textarea{
+    width: 100%;
+    min-height: 40px;
+}
+.create_product form button{
+    width: 200px;
+    height: 40px;
+    letter-spacing: 2px;
+    margin-left: 10px;
+    
+}

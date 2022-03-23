@@ -1,0 +1,19 @@
+/* eye icon inside input feild */
+.pwd{
+	position: relative;
+}
+.p-viewer {
+	z-index: 9999;
+	position: absolute;
+	top: 25%;
+	right: 10px;
+  cursor: pointer;
+}
+
+.fa-eye {
+	color: #000;
+}
+
+.form-label{
+	font-weight:500;
+}
