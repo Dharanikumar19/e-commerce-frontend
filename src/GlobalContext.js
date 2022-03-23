@@ -16,6 +16,9 @@ export const DataProvider = ({children}) => {
                 const res = await axios.get('https://dk-e-commerce.herokuapp.com/user/refresh_token')
         
                 setToken(res.data.accesstoken)
+                setTimeout(() => {
+                    refreshToken()
+                }, 10 * 60 * 1000)
             }
             refreshToken()
          }        
