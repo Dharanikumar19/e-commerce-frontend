@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { GlobalContext } from "../../../GlobalContext";
 import ProductItem from './ProductItem';
 import "./ProductView.css";
+
 function ProductView() {
   const params = useParams()
   const state = useContext(GlobalContext)
