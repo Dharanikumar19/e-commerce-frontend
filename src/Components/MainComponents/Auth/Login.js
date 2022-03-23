@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import "./Login.css";
+
+
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [user, setUser] = useState({
     email: "", password: ""
   })
+  const navigate = useNavigate()
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
@@ -23,7 +26,7 @@ function Login() {
     try {
       await axios.post("https://dk-e-commerce.herokuapp.com/user/login", {...user})
       localStorage.setItem("firstLogin", true)
-        window.location.href = "/";
+        navigate("/")
     } catch (error) {
       alert(error.response.data.message)
     }
