@@ -28,7 +28,7 @@ function GetUsers() {
             }
             getUser()
         }
-    },[])
+    },[token])
     
 
 

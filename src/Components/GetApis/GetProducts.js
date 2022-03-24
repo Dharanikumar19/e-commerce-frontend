@@ -12,7 +12,7 @@ function GetProducts() {
 
   useEffect(() => {
     const getProducts = async () => {
-        const res = await axios.get(`https://dk-e-commerce.netlify.app/api/products?limit=${page*21}&${category}&${sort}&title[regex]=${search}`)
+        const res = await axios.get(`https://dk-e-commerce.netlify.app/api/products?limit=${page*27}&${category}&${sort}&title[regex]=${search}`)
         setProducts(res.data.products)
         setResult(res.data.result)
       }
