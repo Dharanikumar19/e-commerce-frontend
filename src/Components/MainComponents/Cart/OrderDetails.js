@@ -16,16 +16,15 @@ function OrderDetails() {
             })
         }
     }, [params.id, history])
-    console.log(orderDetails)
 
 
     if (orderDetails.length === 0) return null;
     return (
         <>
             <h4 className='mt-3 mb-3 text-center'>Order Details</h4>
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
-                    <tr>
+                    <tr style={{textAlign:"center"}}>
                         <th scope="col">Product Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Total Price</th>
@@ -37,10 +36,10 @@ function OrderDetails() {
 
                     {
                         orderDetails.cart.map(item => (
-                            <tr key={item._id}>
+                            <tr key={item._id} style={{textAlign:"center"}}>
                                 <td>{item.title}</td>
                                 <td>{item.quantity}</td>
-                                <td>₹ : {item.price * item.quantity}</td>
+                                <td>$ : {item.price * item.quantity}</td>
                                 <td>{item.category}</td>
                             </tr>
                         ))

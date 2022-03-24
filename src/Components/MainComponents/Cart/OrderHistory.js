@@ -7,19 +7,19 @@ function OrderHistory() {
     const state = useContext(GlobalContext)
     const [history, setHistory] = state.getUsers.history
     const [isAdmin] = state.getUsers.isAdmin
-    const [token] = state.token
+    const token = localStorage.getItem('firstLogin')
 
 
     useEffect(() => {
       if(token){
           const getHistory = async() => {
               if(isAdmin){
-                  const result = await axios.get("https://dk-e-commerce.herokuapp.com/api/payment", {
+                  const result = await axios.get("https://dk-e-commerce.netlify.app/api/payment", {
                       headers : {Authorization : token}
                   })
                   setHistory(result.data)
               }else{
-                  const result = await axios.get("https://dk-e-commerce.herokuapp.com/user/history", {
+                  const result = await axios.get("https://dk-e-commerce.netlify.app/user/history", {
                       headers : {Authorization : token}
                   })
                   setHistory(result.data)
@@ -33,11 +33,11 @@ function OrderHistory() {
   return (
       <>
         <h4 className='mt-4 mb-4 text-center'>{isAdmin ? "Users Order History" : "Your Order History"}</h4>
-        <h6 className='mt-3 mb-3'>{isAdmin ? "Users Total Order " : "Your Total Orders"} : {history.length} </h6>
+        <h5 className='mt-4 mb-4' style={{textAlign:"center"}}>{isAdmin ? "Users Total Order " : "Your Total Orders"} : {history.length} </h5>
 
-        <table class="table table-striped">
+        <table className="table table-striped">
   <thead>
-    <tr>
+    <tr style={{textAlign:"center"}}>
       <th scope="col">Payment ID</th>
       <th scope="col">Data of Purchased</th>
       <th scope="col">Order Details</th>
@@ -48,7 +48,7 @@ function OrderHistory() {
 
       {
           history.map(items => (
-              <tr key={items._id}>
+              <tr key={items._id} style={{textAlign:"center"}}>
       
             <td>{items.paymentID}</td>
             <td>{new Date(items.createdAt).toLocaleDateString()}</td>

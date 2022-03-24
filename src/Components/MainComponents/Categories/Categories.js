@@ -7,22 +7,22 @@ function Categories() {
   const state = useContext(GlobalContext)
   const [categories] = state.getCategories.categories
   const [category, setCategory] = useState('')
-  const [token] = state.token
    const [callback, setCallback] = state.getCategories.callback
    const [onEdit, setOnEdit] = useState(false)
   const [id,setID] = useState('')
+  const token = localStorage.getItem('firstLogin')
 
 
   const createCategory = async e => {
     e.preventDefault()
     try {
       if (onEdit) {
-        const result = await axios.put(`https://dk-e-commerce.herokuapp.com/api/category/${id}`, { name: category }, {
+        const result = await axios.put(`https://dk-e-commerce.netlify.app/api/category/${id}`, { name: category }, {
           headers: { Authorization: token }
         })
         alert(result.data.message)
       } else {
-        const result = await axios.post('https://dk-e-commerce.herokuapp.com/api/category', { name: category }, {
+        const result = await axios.post('https://dk-e-commerce.netlify.app/api/category', { name: category }, {
           headers: { Authorization: token }
         })
         alert(result.data.message)
@@ -44,7 +44,7 @@ function Categories() {
 
   const deleteCategory = async id => {
     try {
-      const result = await axios.delete(`https://dk-e-commerce.herokuapp.com/api/category/${id}`, {
+      const result = await axios.delete(`https://dk-e-commerce.netlify.app/api/category/${id}`, {
         headers: { Authorization: token }
       })
       alert(result.data.message)

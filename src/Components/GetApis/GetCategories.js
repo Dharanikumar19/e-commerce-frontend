@@ -7,7 +7,7 @@ function GetCategories() {
 
     useEffect(() => {
         const getCategories = async () =>{
-            const result = await axios.get("https://dk-e-commerce.herokuapp.com/api/category")
+            const result = await axios.get("https://dk-e-commerce.netlify.app/api/category")
             setCategories(result.data)
         }
         getCategories()

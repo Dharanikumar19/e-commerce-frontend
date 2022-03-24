@@ -15,7 +15,7 @@ function Header() {
     const [menu, setMenu] = useState(false)
 
     const logoutUser = async () => {
-        await axios.get("https://dk-e-commerce.herokuapp.com/user/logout")
+        await axios.get("https://dk-e-commerce.netlify.app/user/logout")
         localStorage.removeItem("firstLogin")
         window.location.href = "/"
     }

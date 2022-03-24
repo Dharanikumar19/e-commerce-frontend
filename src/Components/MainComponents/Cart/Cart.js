@@ -8,8 +8,8 @@ import PayPalPayment from "./PayPalPayment";
 function Cart() {
   const state = useContext(GlobalContext);
   const [cart, setCart] = state.getUsers.cart
-  const [token] = state.token
   const [total, setTotal] = useState(0)
+  const token = localStorage.getItem('firstLogin')
 
   useEffect(() => {
     const getTotal = () => {
@@ -22,7 +22,7 @@ function Cart() {
   }, [cart]);
 
   const addToCart = async (cart) => {
-    await axios.patch("https://dk-e-commerce.herokuapp.com/user/addcart", {cart}, {
+    await axios.patch("https://dk-e-commerce.netlify.app/user/addcart", {cart}, {
       headers: { Authorization: token }
     })
   }
@@ -63,7 +63,7 @@ function Cart() {
 
   const tranSuccess = async (payment) => {
     const {paymentID, address} = payment;
-    await axios.post("https://dk-e-commerce.herokuapp.com/api/payment", {cart, paymentID, address},{
+    await axios.post("https://dk-e-commerce.netlify.app/api/payment", {cart, paymentID, address},{
       headers : {Authorization: token}
     })
     setCart([])
@@ -81,7 +81,7 @@ function Cart() {
         cart.map(product => (
           <div className='detail cart-final' key={product._id}>
 
-            <img src={`${product.imageUrl}`} alt="" class="card-img-top" />
+            <img src={`${product.imageUrl}`} alt="" className="card-img-top" />
             <div className='box-detail'>
               <div className='row'>
                 <h2>{product.title}</h2>

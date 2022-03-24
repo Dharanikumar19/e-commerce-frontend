@@ -23,10 +23,10 @@ function CreateProduct() {
     const [product, setProduct] = useState(initialState)
     const [categories] = state.getCategories.categories
     const [isAdmin] = state.getUsers.isAdmin;
-    const [token] = state.token
     const[products] = state.GetProducts.products
     const [onEdit, setOnEdit] = useState(false)
     const [callback, setCallback] = state.GetProducts.callback
+    const token = localStorage.getItem('firstLogin')
 
     useEffect(() => {
         if(params.id){
@@ -55,11 +55,11 @@ function CreateProduct() {
             if(!isAdmin) return alert("Not Authorized")
 
             if(onEdit){
-                await axios.put(`https://dk-e-commerce.herokuapp.com/api/products/${product._id}`, {...product},{
+                await axios.put(`https://dk-e-commerce.netlify.app/api/products/${product._id}`, {...product},{
                     headers : {Authorization : token}
                 })
             }else{
-                await axios.post("https://dk-e-commerce.herokuapp.com/api/products", {...product},{
+                await axios.post("https://dk-e-commerce.netlify.app/api/products", {...product},{
                     headers : {Authorization : token}
                 })
             }

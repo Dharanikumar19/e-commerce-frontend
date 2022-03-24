@@ -25,7 +25,7 @@ function ProductView() {
   return (
     <>
       <div className='detail'>
-        <img src={`${detailProduct.imageUrl}`} alt="" class="card-img-top" />
+        <img src={`${detailProduct.imageUrl}`} alt="" className="card-img-top" />
         <div className='box-detail'>
           <div className='row'>
             <h2>{detailProduct.title}</h2>

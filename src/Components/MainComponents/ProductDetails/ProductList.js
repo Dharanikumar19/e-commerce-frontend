@@ -9,8 +9,8 @@ function ProductList() {
   const state = useContext(GlobalContext)
   const [products] = state.GetProducts.products
   const [isAdmin] = state.getUsers.isAdmin
-  const [token] = state.token
   const [callback, setCallback] = state.GetProducts.callback
+  const token = localStorage.getItem('firstLogin')
     return (
         <>
       

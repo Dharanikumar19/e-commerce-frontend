@@ -2,18 +2,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-function GetUsers(token) {
+function GetUsers() {
     const [isLogged, setIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [cart, setCart] = useState([])
     const [history, setHistory] = useState([])
-   
+    const token = localStorage.getItem('firstLogin')
 
     useEffect(() =>{
+        
         if(token){
             const getUser = async () =>{
                 try {
-                    const result = await axios.get("https://dk-e-commerce.herokuapp.com/user/info" ,{
+                    const result = await axios.get("https://dk-e-commerce.netlify.app/user/info" ,{
                         headers: {Authorization : token}
                     })
                     setIsLogged(true)
@@ -27,7 +28,7 @@ function GetUsers(token) {
             }
             getUser()
         }
-    },[token])
+    },[])
     
 
 
@@ -40,8 +41,7 @@ function GetUsers(token) {
 
     if(check){
         setCart([...cart, {...product, quantity: 1}])
-
-        await axios.patch('https://dk-e-commerce.herokuapp.com/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
+        await axios.patch('https://dk-e-commerce.netlify.app/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
             headers: {Authorization: token}
     })
     }else{
