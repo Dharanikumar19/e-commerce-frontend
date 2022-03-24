@@ -24,8 +24,8 @@ function MainPages() {
     <Route path="/create_product" exact element={ isAdmin ? <CreateProduct/> : <NotFound/> } />
     <Route path="/edit_product/:id" exact element={ isAdmin ? <CreateProduct/> : <NotFound/> } />
     <Route path="/detail/:id" exact element={<ProductView/> } />
-    <Route path="/login" exact element={<Login/>} />
-    <Route path="/register" exact element={<Register/>} />
+    <Route path="/login" exact element={isLogged ? <NotFound/> : <Login/>} />
+    <Route path="/register" exact element={isLogged ? <NotFound/> : <Register/>} />
     <Route path="/cart" exact element={<Cart/>} />
     <Route path="/history" exact element={ isLogged ? <OrderHistory/> : <NotFound/> } />
    

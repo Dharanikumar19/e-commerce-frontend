@@ -3,8 +3,6 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Login.css";
-
-
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [user, setUser] = useState({
@@ -20,16 +18,26 @@ function Login() {
     setPasswordShown(!passwordShown);
   };
 
+  
   const loginSubmit = async (e) =>{
     e.preventDefault()
     try {
-      await axios.post("https://dk-e-commerce.herokuapp.com/user/login", {...user})
-      localStorage.setItem("firstLogin", true)
-      window.location.href = "/"
+       const result =  await axios.post('https://dk-e-commerce.herokuapp.com/user/login', {...user})
+
+        localStorage.setItem('firstLogin', true)
+        function setCookie(cname, cvalue, exdays) {
+          const d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          let expires = "expires="+ d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        setCookie("refreshtoken",result.data.refreshtoken, 365 )
+       
+         window.location.href = "/";
     } catch (error) {
-      alert(error.response.data.message)
+        alert(error.response.data.msg)
     }
-  }
+}
 
   return (
     <>
@@ -45,17 +53,18 @@ function Login() {
                   </div>
 
                   <form onSubmit={loginSubmit}>
-                    <p className='text-center text-bold' style={{ fontSize: "20px", fontFamily:"600" }}> Login to your account</p>
+                    <p className='text-center text-bold mb-4' style={{ fontSize: "20px" }}> Login to your account</p>
+
                     <div class="form-outline mb-4">
                       <input type="email" class="form-control" name="email" placeholder="Enter your email address"
                         value={user.email} onChange={onChangeInput} required />
-                      <label class="form-label" >Email Id</label>
+                      <label class="form-label">Email Id</label>
                     </div>
 
                     <div class="form-outline mb-4">
                       <div class="pwd">
                         <input type={passwordShown ? "text" : "password"} name='password' placeholder='Enter your password' className="form-control"
-                          value={user.password} onChange={onChangeInput} required autocomplete="on" />
+                          value={user.password} onChange={onChangeInput} required autoComplete="on" />
                         <span class="p-viewer">
                           <i onClick={togglePassword} class="fa fa-eye" aria-hidden="true"></i>
                         </span>
