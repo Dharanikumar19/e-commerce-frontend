@@ -10,17 +10,34 @@ export const DataProvider = ({ children }) => {
     const [token, setToken] = useState(false)
 
     
+    // useEffect(() =>{
+    //     const firstLogin = localStorage.getItem('firstLogin')
+    //     if(firstLogin){
+    //         const refreshToken = async () =>{
+    //             const res = await axios.get('https://dk-e-commerce.herokuapp.com/user/refreshToken', {withCredentials : true})
+               
+    //             setToken(res.data.accesstoken)
+    //         }
+    //        setTimeout(() => {
+    //         refreshToken()
+    //        },10*60*1000)
+    //     }
+    //     refreshToken()
+    // },[])
+
     useEffect(() =>{
         const firstLogin = localStorage.getItem('firstLogin')
         if(firstLogin){
             const refreshToken = async () =>{
-                const res = await axios.get('https://dk-e-commerce.herokuapp.com/user/refreshToken', {withCredentials : true})
-               
+                const res = await axios.get('/user/refresh_token')
+        
                 setToken(res.data.accesstoken)
+    
+                setTimeout(() => {
+                    refreshToken()
+                }, 10 * 60 * 1000)
             }
-           setTimeout(() => {
             refreshToken()
-           },10*60*1000)
         }
     },[])
 

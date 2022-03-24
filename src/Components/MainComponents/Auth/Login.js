@@ -24,16 +24,16 @@ function Login() {
     try {
        const result =  await axios.post('https://dk-e-commerce.herokuapp.com/user/login', {...user})
 
-        localStorage.setItem('firstLogin', true)
-        function setCookie(cname, cvalue, exdays) {
-          const d = new Date();
-          d.setTime(d.getTime() + (exdays*24*60*60*1000));
-          let expires = "expires="+ d.toUTCString();
-          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-        setCookie("refreshtoken",result.data.refreshtoken, 365 )
+          localStorage.setItem('firstLogin', true)
+        // function setCookie(cname, cvalue, exdays) {
+        //   const d = new Date();
+        //   d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        //   let expires = "expires="+ d.toUTCString();
+        //   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        // }
+        // setCookie("refreshtoken",result.data.refreshtoken, 365 )
        
-         window.location.href = "/";
+          window.location.href = "/";
     } catch (error) {
         alert(error.response.data.msg)
     }
