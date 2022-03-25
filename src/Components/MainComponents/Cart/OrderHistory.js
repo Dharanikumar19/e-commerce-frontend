@@ -14,12 +14,12 @@ function OrderHistory() {
       if(token){
           const getHistory = async() => {
               if(isAdmin){
-                  const result = await axios.get("https://dk-e-commerce.netlify.app/api/payment", {
+                  const result = await axios.get("https://e-commerce-website-dk.herokuapp.com/api/payment", {
                       headers : {Authorization : token}
                   })
                   setHistory(result.data)
               }else{
-                  const result = await axios.get("https://dk-e-commerce.netlify.app/user/history", {
+                  const result = await axios.get("https://e-commerce-website-dk.herokuapp.com/user/history", {
                       headers : {Authorization : token}
                   })
                   setHistory(result.data)

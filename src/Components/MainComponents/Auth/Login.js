@@ -22,7 +22,7 @@ function Login() {
   const loginSubmit = async (e) =>{
     e.preventDefault()
     try {
-       const result =  await axios.post('https://dk-e-commerce.netlify.app/user/login', {...user})
+       const result =  await axios.post('https://e-commerce-website-dk.herokuapp.com/user/login', {...user})
         localStorage.setItem('firstLogin', result.data.accesstoken)      
           window.location.href = "/";
     } catch (error) {

@@ -17,12 +17,12 @@ function Categories() {
     e.preventDefault()
     try {
       if (onEdit) {
-        const result = await axios.put(`https://dk-e-commerce.netlify.app/api/category/${id}`, { name: category }, {
+        const result = await axios.put(`https://e-commerce-website-dk.herokuapp.com/api/category/${id}`, { name: category }, {
           headers: { Authorization: token }
         })
         alert(result.data.message)
       } else {
-        const result = await axios.post('https://dk-e-commerce.netlify.app/api/category', { name: category }, {
+        const result = await axios.post('https://e-commerce-website-dk.herokuapp.com/api/category', { name: category }, {
           headers: { Authorization: token }
         })
         alert(result.data.message)
@@ -44,7 +44,7 @@ function Categories() {
 
   const deleteCategory = async id => {
     try {
-      const result = await axios.delete(`https://dk-e-commerce.netlify.app/api/category/${id}`, {
+      const result = await axios.delete(`https://e-commerce-website-dk.herokuapp.com/api/category/${id}`, {
         headers: { Authorization: token }
       })
       alert(result.data.message)

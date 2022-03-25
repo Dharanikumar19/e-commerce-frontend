@@ -22,7 +22,7 @@ function Cart() {
   }, [cart]);
 
   const addToCart = async (cart) => {
-    await axios.patch("https://dk-e-commerce.netlify.app/user/addcart", {cart}, {
+    await axios.patch("https://e-commerce-website-dk.herokuapp.com/user/addcart", {cart}, {
       headers: { Authorization: token }
     })
   }
@@ -63,7 +63,7 @@ function Cart() {
 
   const tranSuccess = async (payment) => {
     const {paymentID, address} = payment;
-    await axios.post("https://dk-e-commerce.netlify.app/api/payment", {cart, paymentID, address},{
+    await axios.post("https://e-commerce-website-dk.herokuapp.com/api/payment", {cart, paymentID, address},{
       headers : {Authorization: token}
     })
     setCart([])

@@ -8,7 +8,7 @@ function ProductItem({ product, token, callback, setCallback }) {
     const deleteProduct = async () =>{
         if (window.confirm("Confirm delete Product")) {
         try {
-            const deleteProduct = axios.delete(`https://dk-e-commerce.netlify.app/api/products/${product._id}`,{
+            const deleteProduct = axios.delete(`https://e-commerce-website-dk.herokuapp.com/api/products/${product._id}`,{
                 headers : { Authorization : token}
             })
             await deleteProduct

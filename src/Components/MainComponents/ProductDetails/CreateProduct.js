@@ -55,11 +55,11 @@ function CreateProduct() {
             if(!isAdmin) return alert("Not Authorized")
 
             if(onEdit){
-                await axios.put(`https://dk-e-commerce.netlify.app/api/products/${product._id}`, {...product},{
+                await axios.put(`https://e-commerce-website-dk.herokuapp.com/api/products/${product._id}`, {...product},{
                     headers : {Authorization : token}
                 })
             }else{
-                await axios.post("https://dk-e-commerce.netlify.app/api/products", {...product},{
+                await axios.post("https://e-commerce-website-dk.herokuapp.com/api/products", {...product},{
                     headers : {Authorization : token}
                 })
             }

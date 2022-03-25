@@ -22,7 +22,7 @@ function Register() {
   const registerSubmit = async (e) =>{
     e.preventDefault()
     try {
-       const result = await axios.post("https://dk-e-commerce.netlify.app/user/register", {...user})
+       const result = await axios.post("https://e-commerce-website-dk.herokuapp.com/user/register", {...user})
       localStorage.setItem('firstLogin', result.data.accesstoken)     
           window.location.href = "/";
     } catch (error) {

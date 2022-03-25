@@ -14,7 +14,7 @@ function GetUsers() {
         if(token){
             const getUser = async () =>{
                 try {
-                    const result = await axios.get("https://dk-e-commerce.netlify.app/user/info" ,{
+                    const result = await axios.get("https://e-commerce-website-dk.herokuapp.com/user/info" ,{
                         headers: {Authorization : token}
                     })
                     setIsLogged(true)
@@ -41,7 +41,7 @@ function GetUsers() {
 
     if(check){
         setCart([...cart, {...product, quantity: 1}])
-        await axios.patch('https://dk-e-commerce.netlify.app/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
+        await axios.patch('https://e-commerce-website-dk.herokuapp.com/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
             headers: {Authorization: token}
     })
     }else{
