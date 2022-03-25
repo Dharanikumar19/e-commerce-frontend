@@ -48,17 +48,17 @@ function Register() {
                     <div className="form-outline mb-4">
                       <input type="text" className="form-control" name="name" placeholder="Enter your name"
                         value={user.name} onChange={onChangeInput} required />
-                      <label className="form-label">Name</label>
+                     
                     </div>
                     <div className="form-outline mb-4">
                       <input type="email" className="form-control" name="email" placeholder="Enter your email address"
                         value={user.email} onChange={onChangeInput} required />
-                      <label className="form-label">Email Id</label>
+                     
                     </div>
                     <div className="form-outline mb-4">
                       <input type="number" className="form-control" name="phone" placeholder="Enter your phone number"
                         value={user.phone} onChange={onChangeInput} required />
-                      <label className="form-label">Phone Number</label>
+                     
                     </div>
 
                     <div className="form-outline mb-4">
@@ -69,7 +69,7 @@ function Register() {
                           <i onClick={togglePassword} className="fa fa-eye" aria-hidden="true"></i>
                         </span>
                       </div>
-                      <label className="form-label">Password</label>
+                      
                     </div>
 
                     <div className="text-center pt-1 mb-4 pb-1">

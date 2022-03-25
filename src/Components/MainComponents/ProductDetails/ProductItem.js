@@ -23,7 +23,7 @@ function ProductItem({ product, token, callback, setCallback }) {
         <>
 
             <div className="product_card">
-                  <img src={`${product.imageUrl}`} alt="" className="card-img-top"/>
+                  <img src={product.imageUrl} alt="" className="card-img-top"/>
                  <div className='product_box'>
                     <h2 className='mt-2'> {product.title}</h2>
                    <h5 className="product-price">$ ~ {product.price}</h5>

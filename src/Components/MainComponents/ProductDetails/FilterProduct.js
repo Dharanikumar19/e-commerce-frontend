@@ -38,7 +38,7 @@ const handleCategory = (e) => {
             <div className='col-lg-5'>
                 <div className='row' style={{marginLeft:"50px"}}>
             <label>Search:</label>
-            <input type="text" value={search} placeholder="Search Your Product Here!!!"
+            <input className='filterInput' type="text" value={search} placeholder="Search Your Product Here!!!"
             onChange={e => setSearch(e.target.value.toLowerCase())} />
 
                 </div>

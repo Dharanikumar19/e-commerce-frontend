@@ -48,8 +48,7 @@ function Login() {
 
                     <div className="form-outline mb-4">
                       <input type="email" className="form-control" name="email" placeholder="Enter your email address"
-                        value={user.email} onChange={onChangeInput} required />
-                      <label className="form-label">Email Id</label>
+                        value={user.email} onChange={onChangeInput} required />                   
                     </div>
 
                     <div className="form-outline mb-4">
@@ -60,7 +59,6 @@ function Login() {
                           <i onClick={togglePassword} className="fa fa-eye" aria-hidden="true"></i>
                         </span>
                       </div>
-                      <label className="form-label">Password</label>
                     </div>
 
                     <div className="text-center pt-1 mb-4 pb-1">
