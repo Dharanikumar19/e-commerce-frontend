@@ -56,7 +56,7 @@ function Register() {
                       <label className="form-label">Email Id</label>
                     </div>
                     <div className="form-outline mb-4">
-                      <input type="number" class="form-control" name="phone" placeholder="Enter your phone number"
+                      <input type="number" className="form-control" name="phone" placeholder="Enter your phone number"
                         value={user.phone} onChange={onChangeInput} required />
                       <label className="form-label">Phone Number</label>
                     </div>

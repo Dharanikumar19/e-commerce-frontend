@@ -47,7 +47,7 @@ function Login() {
                     <p className='text-center text-bold mb-4' style={{ fontSize: "20px" }}> Login to your account</p>
 
                     <div className="form-outline mb-4">
-                      <input type="email" class="form-control" name="email" placeholder="Enter your email address"
+                      <input type="email" className="form-control" name="email" placeholder="Enter your email address"
                         value={user.email} onChange={onChangeInput} required />
                       <label className="form-label">Email Id</label>
                     </div>
