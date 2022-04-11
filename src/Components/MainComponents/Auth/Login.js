@@ -9,6 +9,15 @@ function Login() {
     email: "", password: ""
   })
 
+  const userFillInputs = () => {
+    setUser({email : "person10@gmail.com", password: "person10"})
+  }
+
+  const adminFillInputs = () => {
+    setUser({email : "admin@gmail.com", password: "admin"})
+  }
+
+
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value })
@@ -71,8 +80,15 @@ function Login() {
                       <Link to={"/register"}><u>Register here</u></Link>
 
                     </div>
+                    <div className="text-center pt-1 mb-2 pb-1">
+                      <button className="btn btn-primary btn-block" onClick={()=> userFillInputs()}>User Demo Credentials</button>
+                      
+                    </div>
+                    <div className="text-center pt-1 mb-2 pb-1">
+                    <button className="btn btn-primary btn-block" onClick={()=> adminFillInputs()}>Admin Demo Credentials</button>              
+                    </div>
 
-                 
+                    
                 </div>
               </div>
             </div>
